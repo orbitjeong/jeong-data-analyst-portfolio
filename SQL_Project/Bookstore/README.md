@@ -116,11 +116,10 @@ ORDER BY released_year;
 ### 📁 Project Structure
 
 ```
-SQL_BookAnalysis/
+Bookstore/
 ├── README.md          # Project description (this file)
 └── book_analysis.sql  # SQL queries used in the project
 ```
-
 ---
 
 ### 🏆 Key Takeaways
