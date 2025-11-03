@@ -1,6 +1,4 @@
-SELECT * FROM books;
 
-USE books;
 
 -- =====================================
 --  BOOK ANALYSIS PROJECT
@@ -9,6 +7,9 @@ USE books;
 --  Table: books
 --  Description: Basic SQL analysis queries for books dataset
 -- =====================================
+
+USE book_shop;
+
 
 -- 1) Print the number of books in the database
 SELECT COUNT(*) AS total_books
