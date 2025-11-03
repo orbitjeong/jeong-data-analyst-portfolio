@@ -1,12 +1,13 @@
-📘 Book Analysis Project – SQL Practice with `book_shop` Database
+# 📘 Book Analysis Project – SQL Practice with `book_shop` Database
 
-🧩 Overview
+### 🧩 Overview
 
 This project demonstrates the use of SQL to explore and analyze book data stored in a `books` table within the `book_shop` database.
 Through this project, I practiced SQL fundamentals such as **aggregation, grouping, sorting, and subqueries** to summarize and gain insights from data.
 
+---
 
-🗂️ Database Table: `books`
+### 🗂️ Database Table: `books`
 
 | Column           | Description                 |
 | ---------------- | --------------------------- |
@@ -18,17 +19,19 @@ Through this project, I practiced SQL fundamentals such as **aggregation, groupi
 | `stock_quantity` | Number of books in stock    |
 | `pages`          | Number of pages in the book |
 
+---
 
-⚙️ Technologies Used
+### ⚙️ Technologies Used
 
-* MySQL 8.0
-* SQL Queries (SELECT, WHERE, GROUP BY, ORDER BY, LIMIT, Subqueries)
-* Data Aggregation & Analysis
+* **MySQL 8.0**
+* **SQL Queries** (SELECT, WHERE, GROUP BY, ORDER BY, LIMIT, Subqueries)
+* **Data Aggregation & Analysis**
 
+---
 
-📊 Key Queries & Results
+### 📊 Key Queries & Results
 
-1️⃣ Total number of books
+#### 1️⃣ Total number of books
 
 ```sql
 SELECT COUNT(*) AS total_books FROM books;
@@ -36,9 +39,9 @@ SELECT COUNT(*) AS total_books FROM books;
 
 📈 *Result:* 19 books total
 
+---
 
-
-2️⃣ Number of books released each year
+#### 2️⃣ Number of books released each year
 
 ```sql
 SELECT released_year, COUNT(*) AS books_count
@@ -51,62 +54,83 @@ ORDER BY released_year;
 
 ---
 
-3️⃣ Total number of books in stock
+#### 3️⃣ Total number of books in stock
 
-
+```sql
 SELECT SUM(stock_quantity) AS total_stock FROM books;
+```
 
 📦 *Result:* Around **3,380 total books** in stock.
 
+---
 
-4️⃣ Average released year per author
+#### 4️⃣ Average released year per author
 
+```sql
 SELECT author_fname, author_lname, AVG(released_year) AS avg_release_year
 FROM books
 GROUP BY author_lname, author_fname
 ORDER BY author_lname, author_fname;
-
+```
 
 🧑‍💻 *Insight:* Neil Gaiman’s works have an average release year around **2006**, showing consistent output in the 2000s.
 
+---
 
-5️⃣ Author of the longest book
+#### 5️⃣ Author of the longest book
 
+```sql
 SELECT CONCAT(author_fname, ' ', author_lname) AS author
 FROM books
 WHERE pages = (SELECT MAX(pages) FROM books);
+```
 
 📚 *Result:* **Michael Chabon** wrote *The Amazing Adventures of Kavalier & Clay (634 pages)*.
 
+---
 
-6️⃣ Yearly summary – number of books and average pages
+#### 6️⃣ Yearly summary – number of books and average pages
 
+```sql
 SELECT released_year AS year,
        COUNT(*) AS '# books',
        AVG(pages) AS 'avg pages'
 FROM books
 GROUP BY released_year
 ORDER BY released_year;
-
+```
 
 🧾 *Insight:* Average pages increased in later years, indicating longer modern publications.
 
+---
 
-🧠 What I Learned
+### 🧠 What I Learned
 
 * How to **aggregate data** using SQL functions (`COUNT`, `SUM`, `AVG`, `MAX`)
 * How to **group and order** results with `GROUP BY` and `ORDER BY`
 * How to use **subqueries** to answer more complex analytical questions
 * How to derive **insights from structured data**
 
+---
 
-🏆 Key Takeaways
+### 📁 Project Structure
+
+```
+SQL_BookAnalysis/
+├── README.md          # Project description (this file)
+└── book_analysis.sql  # SQL queries used in the project
+```
+
+---
+
+### 🏆 Key Takeaways
 
 > This project helped me understand how to use SQL as a tool for data analysis.
 > Even a simple table like `books` can reveal meaningful insights through proper querying and summarization.
 
+---
 
-✨ Future Improvements
+### ✨ Future Improvements
 
 * Add a **view** for summarized data (`vw_books_summary`)
 * Create a **stored procedure** to automate reports
